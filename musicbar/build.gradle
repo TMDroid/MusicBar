@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'maven-publish'
 
 ext {
@@ -96,35 +95,5 @@ publishing {
 //                }
 //            }
 //        }
-    }
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = bintrayRepo
-        name = bintrayName
-
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        issueTrackerUrl = issueUrl
-        licenses = allLicenses
-        publish = true
-        override = false
-        version {
-            name = libraryVersion
-            desc = libraryDescription
-            released = new Date()
-            vcsTag = libraryVersion
-        }
-//        publications = ['Production', 'Sandbox']
-        publications = ['Production']
-
     }
 }
