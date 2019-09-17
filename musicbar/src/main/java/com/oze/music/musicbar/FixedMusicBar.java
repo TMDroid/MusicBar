@@ -56,7 +56,11 @@ public class FixedMusicBar extends MusicBar {
                 top = startY - height;
 
                 if (i <= mSeekToPosition) {
-                    canvas.drawLine(startX, startY, startX, top, mLoadedBarPrimeColor);
+                    if(barBackgoundPaint != null) {
+                        canvas.drawLine(startX, startY, startX, top, barBackgoundPaint);
+                    } else {
+                        canvas.drawLine(startX, startY, startX, top, mLoadedBarPrimeColor);
+                    }
                 } else {
                     canvas.drawLine(startX, startY, startX, top, mBackgroundBarPrimeColor);
                 }

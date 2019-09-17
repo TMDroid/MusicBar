@@ -49,6 +49,7 @@ public class MusicBar extends View {
     final int ANIMATION_TYPE_HIDE = 1;
     InputStream mStream;
     int mStreamLength = 0;
+    Paint barBackgoundPaint;
 
     public MusicBar(Context context) {
         super(context);
@@ -653,5 +654,10 @@ public class MusicBar extends View {
             clearBarAnimator();
         }
 
+    }
+
+    public MusicBar setBarBackgoundPaint(Paint barBackgoundPaint) {
+        this.barBackgoundPaint = barBackgoundPaint;
+        return this;
     }
 }
